@@ -1,0 +1,155 @@
+
+body {
+    font: normal 15px auto, Verdana, Arial, Helvetica, sans-serif;
+    background: white;
+}
+
+a{
+    text-decoration: none;
+}
+a:hover{
+    text-decoration: underline;
+}
+
+table {
+    border: 0;
+    margin: 0;
+    border-collapse:collapse;
+    table-layout:fixed;
+    word-break:break-all; /*只兼容ie，强制换行，不撑破表格，但firefox还没做到兼容英文单词，只对中文有效*/
+    word-wrap:break-word;
+    width: 530px;       /*三个th宽度之和*/
+}
+
+th {
+    font-weight: bold;
+    font-size: 13px;
+    border: 1px solid #C1DAD7;
+    color: #4f6b72;
+    letter-spacing: 2px;
+    text-align: center;
+    padding-bottom: 4px;
+    padding-top: 7px;
+    background: #CAE8EA;
+}
+table .operationTh{
+    width: 70px;
+}
+table .createTimeTh{
+    width:190px;
+}
+table .fileNameTh{
+    width: 260px;
+}
+
+tr{
+    background-color:#fff;
+}
+
+tr.oddTr{
+    background-color: white;
+}
+tr.evenTr{
+    background-color: #E5FAFA;
+}
+td {
+    border: 1px solid #C1DAD7;
+    font-size:13px;
+    padding: 10px 10px 6px 10px;
+    color: black;
+}
+
+input{
+    height: 25px;
+}
+
+.infoDiv{
+    width: 180px;
+    height: 40px;
+    line-height:40px;  /*垂直居中的办法：跟div高度一样*/
+    font: 13px;
+    color: #00529B;
+    background-color: #E5FAFA;
+    background-image: url(../image/info.png);
+    background-repeat: no-repeat;
+    background-position:5px;
+    text-align: center;
+    text-indent: 20px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: #CAE8EA;
+}
+
+#operationTipDiv{
+    width: 188px;
+    height: 20px;
+    line-height:20px;  /*垂直居中的办法：跟div高度一样*/
+    font-size: 11px;
+    background-image: url(../image/tip.gif);
+}
+#closeTipButton{
+    font-weight: bold;
+    font-size: 13px;
+    padding-left: 5px;
+    padding-right: 2px;
+    text-decoration: none;
+    color: #00529B;
+}
+#closeTipButton:hover{
+    font-weight: bold;
+    color: red;
+    text-decoration: none;
+}
+
+#toolbar{
+    width: 530px;
+}
+
+#toolbar .toolbarBody{
+    margin-bottom: 10px;
+    border: 1px solid #C1DAD7;
+    border-top: none;
+    font-size:13px;
+    padding: 4px 4px 4px 12px;
+    color: black;
+}
+#toolbar .toolbarHead{
+    font-weight: bold;
+    font-size: 13px;
+    border: 1px solid #C1DAD7;
+    color: #4f6b72;
+    letter-spacing: 2px;
+    padding: 6px 4px 2px 12px;
+    background: #CAE8EA;
+}
+
+.deleteButton{
+    cursor: pointer;
+}
+.renameButton{
+    cursor: pointer;
+}
+
+.hiddenDiv{
+    display : none ;
+}
+
+#leftSideDiv{
+    width: 250px;
+    position:absolute;
+}
+#directoryTreeDiv{
+    width: 250px;
+    overflow-y: hidden;
+    overflow-x: auto; /*-XP 直接为#directoryTreeDiv容器设置overflow，即可解决*/
+    padding-bottom: 18px;   /*兼容ie6，如果不加这个，一旦出现横向滚动条就会挡住最后一行*/
+}
+#rightDiv{
+    position:absolute;
+    left: 260px;
+    padding-right: 10px;
+}
+
+#uploadFileForm{
+    display: inline;
+}

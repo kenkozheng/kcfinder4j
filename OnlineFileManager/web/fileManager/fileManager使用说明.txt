@@ -1,0 +1,33 @@
+涉及到的jar包有：
+pinyin4j-2.5.0.jar
+commons-fileupload-1.2.2.jar
+commons-io-2.0.1.jar
+commons-logging-1.1.1.jar
+
+把UI.FileManage包和org.json包, utility包（中文拼音排序）都放入项目路径，FileManager包会用到其他两个包，所以其他两个包路径不要修改.
+并配置UI.FileManage的两个Servlet到web.xml中
+    <servlet>
+        <servlet-name>OnlineFileManagerServlet</servlet-name>
+        <servlet-class>UI.FileManage.OnlineFileManagerServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>OnlineFileManagerServlet</servlet-name>
+        <url-pattern>/OnlineFileManagerServlet</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>UploadServlet</servlet-name>
+        <servlet-class>UI.FileManage.UploadServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UploadServlet</servlet-name>
+        <url-pattern>/UploadServlet</url-pattern>
+    </servlet-mapping>
+
+fileManager文件夹必须放在根目录，因为里边js代码有相对OnlineFileManager的相对路径：
+var MANAGER_SERVLET = "../OnlineFileManagerServlet";    //指定管理功能的Servlet的路径
+var UPLOAD_SERVLET = "../UploadServlet";                //指定上传功能的Servlet的路径
+
+使用很简单：iframe中，加载fileManager.html?userFolder=/userFiles。后边必须用get传参，表示fileManager管理的目录（相对根目录的路径）
+相对应地，需要修改SecurityChecker.java。默认的/userFiles已经可用，表示根目录下的userFiles文件夹。
+尽量不要引入其他元素，以免jquery选择器出错
+fileManager自带了遮罩效果，如果需要使用主页面统一的遮罩，那么就请修改blockPage和unBlockPage两个函数
